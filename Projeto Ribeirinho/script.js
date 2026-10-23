@@ -12,21 +12,14 @@ if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
         definirMenu(!navMenu.classList.contains('active'));
     });
-
-    // Fecha o menu ao escolher um link (importante para os links #âncora)
     navMenu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => definirMenu(false));
     });
 
-    // Se a tela voltar para o tamanho de desktop, garante o menu fechado
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) definirMenu(false);
     });
 }
-
-/* =========================================================
-   ELEMENTOS DA PÁGINA DE LOGIN / CADASTRO
-   ========================================================= */
 const tabLogin = document.getElementById('tabLogin');
 const tabCadastro = document.getElementById('tabCadastro');
 const loginForm = document.getElementById('loginForm');
@@ -36,14 +29,10 @@ const modal = document.getElementById('modalSucesso');
 const modalTexto = document.getElementById('modalTexto');
 const btnFecharModal = document.getElementById('fecharModal');
 
-/* =========================================================
-   FUNÇÕES DE VALIDAÇÃO
-   ========================================================= */
 function validarEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Conta apenas letras (inclui acentos), ignorando espaços, números e símbolos
 function contarLetras(texto) {
     const letras = texto.match(/\p{L}/gu);
     return letras ? letras.length : 0;
@@ -61,7 +50,6 @@ function limparErros(form) {
     form.querySelectorAll('input').forEach((input) => input.removeAttribute('aria-invalid'));
 }
 
-// Regras de cada campo (a senha NÃO usa trim: espaços fazem parte da senha)
 const regras = {
     loginEmail: (v) => !validarEmail(v.trim()),
     loginSenha: (v) => v.trim() === '',
@@ -70,7 +58,6 @@ const regras = {
     senha: (v) => v.trim() === '' || v.length < 6,
 };
 
-// Revalida o campo enquanto a pessoa digita, mas só depois de ele já ter dado erro
 function ativarValidacaoAoDigitar(form) {
     form.querySelectorAll('input').forEach((input) => {
         input.addEventListener('input', () => {
@@ -81,9 +68,6 @@ function ativarValidacaoAoDigitar(form) {
     });
 }
 
-/* =========================================================
-   ABAS (LOGIN / CADASTRO)
-   ========================================================= */
 function mostrarAba(aba) {
     const irParaLogin = aba === 'login';
 
@@ -94,7 +78,6 @@ function mostrarAba(aba) {
     loginForm.classList.toggle('active', irParaLogin);
     cadastroForm.classList.toggle('active', !irParaLogin);
 
-    // Evita que erros antigos fiquem aparecendo ao voltar para a aba
     limparErros(loginForm);
     limparErros(cadastroForm);
 }
@@ -104,9 +87,6 @@ if (tabLogin && tabCadastro && loginForm && cadastroForm) {
     tabCadastro.addEventListener('click', () => mostrarAba('cadastro'));
 }
 
-/* =========================================================
-   MODAL
-   ========================================================= */
 let elementoAnterior = null;
 
 function abrirModal(mensagem) {
@@ -128,20 +108,15 @@ function fecharModal() {
 if (btnFecharModal && modal) {
     btnFecharModal.addEventListener('click', fecharModal);
 
-    // Clicar fora da caixa também fecha
     modal.addEventListener('click', (e) => {
         if (e.target === modal) fecharModal();
     });
 
-    // Tecla Esc fecha o modal
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('show')) fecharModal();
     });
 }
 
-/* =========================================================
-   ENVIO DOS FORMULÁRIOS
-   ========================================================= */
 if (loginForm) {
     ativarValidacaoAoDigitar(loginForm);
 
@@ -150,7 +125,6 @@ if (loginForm) {
         const email = document.getElementById('loginEmail');
         const senha = document.getElementById('loginSenha');
 
-        // As duas validações rodam sempre, para mostrar todos os erros de uma vez
         const v1 = aplicarValidacao(email, regras.loginEmail(email.value));
         const v2 = aplicarValidacao(senha, regras.loginSenha(senha.value));
 
