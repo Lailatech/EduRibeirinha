@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="pagina-login">
-
-    <!-- Cabeçalho idêntico para manter a identidade -->
     <header>
         <div class="logo">🌊 EduRibeirinha</div>
         <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">☰</button>
@@ -19,16 +17,11 @@
             <a href="login.html" class="btn-destaque ativo">Entrar / Cadastrar</a>
         </nav>
     </header>
-
-    <!-- Área de Autenticação -->
     <main class="auth-container">
-        <!-- Abas para escolher o que fazer -->
         <div class="tabs" role="tablist">
             <button type="button" class="tab-btn active" id="tabLogin" role="tab" aria-selected="true" aria-controls="loginForm">Já tenho conta (Login)</button>
             <button type="button" class="tab-btn" id="tabCadastro" role="tab" aria-selected="false" aria-controls="cadastroForm">Quero me cadastrar</button>
         </div>
-
-        <!-- FORMULÁRIO 1: LOGIN (Visível por padrão) -->
         <form id="loginForm" class="auth-form active" role="tabpanel" novalidate>
             <h2>Entrar no Perfil</h2>
             <div class="form-group">
@@ -43,8 +36,6 @@
             </div>
             <button type="submit" class="btn-submit">Entrar</button>
         </form>
-
-        <!-- FORMULÁRIO 2: CADASTRO (Escondido por padrão) -->
         <form id="cadastroForm" class="auth-form" role="tabpanel" novalidate>
             <h2>Criar Conta</h2>
             <div class="form-group">
@@ -65,8 +56,6 @@
             <button type="submit" class="btn-submit">Finalizar Cadastro</button>
         </form>
     </main>
-
-    <!-- Modal de Sucesso -->
     <div id="modalSucesso" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
         <div class="modal-content">
             <h3 id="modalTitulo">🎉 Sucesso!</h3>
