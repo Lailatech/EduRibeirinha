@@ -275,10 +275,6 @@ nav a.btn-destaque.ativo {
     display: block;
     color: var(--azul-900);
 }
-
-/* =========================================================
-   RODAPÉ
-   ========================================================= */
 footer {
     margin-top: auto;
     background: var(--gradiente);
