@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectar - Educação Ribeirinha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-login">
+
+    <!-- Cabeçalho idêntico para manter a identidade -->
+    <header>
+        <div class="logo">🌊 EduRibeirinha</div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">☰</button>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html#funcionamento">Como Funciona</a>
+            <a href="index.html#desafios">Desafios</a>
+            <a href="login.html" class="btn-destaque ativo">Entrar / Cadastrar</a>
+        </nav>
+    </header>
+
+    <!-- Área de Autenticação -->
+    <main class="auth-container">
+        <!-- Abas para escolher o que fazer -->
+        <div class="tabs" role="tablist">
+            <button type="button" class="tab-btn active" id="tabLogin" role="tab" aria-selected="true" aria-controls="loginForm">Já tenho conta (Login)</button>
+            <button type="button" class="tab-btn" id="tabCadastro" role="tab" aria-selected="false" aria-controls="cadastroForm">Quero me cadastrar</button>
+        </div>
+
+        <!-- FORMULÁRIO 1: LOGIN (Visível por padrão) -->
+        <form id="loginForm" class="auth-form active" role="tabpanel" novalidate>
+            <h2>Entrar no Perfil</h2>
+            <div class="form-group">
+                <label for="loginEmail">E-mail</label>
+                <input type="email" id="loginEmail" placeholder="seuemail@exemplo.com" autocomplete="email">
+                <span class="error-message" role="alert">Insira um e-mail válido.</span>
+            </div>
+            <div class="form-group">
+                <label for="loginSenha">Senha</label>
+                <input type="password" id="loginSenha" placeholder="Digite sua senha" autocomplete="current-password">
+                <span class="error-message" role="alert">A senha é obrigatória.</span>
+            </div>
+            <button type="submit" class="btn-submit">Entrar</button>
+        </form>
+
+        <!-- FORMULÁRIO 2: CADASTRO (Escondido por padrão) -->
+        <form id="cadastroForm" class="auth-form" role="tabpanel" novalidate>
+            <h2>Criar Conta</h2>
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" autocomplete="name">
+                <span class="error-message" role="alert">O nome precisa ter pelo menos 3 letras.</span>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com" autocomplete="email">
+                <span class="error-message" role="alert">Insira um e-mail válido.</span>
+            </div>
+            <div class="form-group">
+                <label for="senha">Crie uma Senha</label>
+                <input type="password" id="senha" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+                <span class="error-message" role="alert">A senha precisa ter pelo menos 6 caracteres.</span>
+            </div>
+            <button type="submit" class="btn-submit">Finalizar Cadastro</button>
+        </form>
+    </main>
+
+    <!-- Modal de Sucesso -->
+    <div id="modalSucesso" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+        <div class="modal-content">
+            <h3 id="modalTitulo">🎉 Sucesso!</h3>
+            <p id="modalTexto">Ação realizada com sucesso.</p>
+            <button type="button" id="fecharModal" class="btn">Fechar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Educação Ribeirinha. Desenvolvido com fins educativos.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
